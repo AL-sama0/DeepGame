@@ -3,14 +3,42 @@
     <head>
         <title>Game</title>
         <link rel="stylesheet" href="./style.css">
+        <style>
+            /* 添加按钮样式 */
+            #restart-button {
+                padding: 10px 20px;
+                font-size: 18px;
+                background-color: #4caf50;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                margin-top: 20px;
+            }
+            #restart-button:hover {
+                background-color: #45a049;
+            }
+        </style>
     </head>
     <body>
         <h1>Kun Game</h1>
         <h2>Game Ended</h2>
         <h2 id="score"></h2>
+        <!-- 添加重新开始按钮 -->
+        <button id="restart-button">重新开始</button>
         <script>
-            localStorage.time = undefined
-            document.getElementById('score').innerHTML = 'Score: ' + localStorage.score
+            // 显示最终得分
+            localStorage.time = undefined;
+            document.getElementById('score').innerHTML = 'Score: ' + localStorage.score;
+
+            // 重新开始游戏
+            document.getElementById('restart-button').addEventListener('click', function() {
+                // 重置分数和时间
+                localStorage.score = 0;
+                localStorage.time = 100;
+                // 跳转到游戏开始页面
+                window.open('./start.html', '_self');
+            });
         </script>
     </body>
 </html>
